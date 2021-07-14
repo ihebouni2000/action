@@ -1,32 +1,10 @@
-
-on:
-  pull_request:
-  push:
-    branches: 
-      - master
-      - develop
-
-jobs:
-  test:
-name: Exotel SMS
-  # You may pin to the exact commit or the version.
-  # uses: sagarchoudhary96/exosms-actions@0456b3973d4a76f50dfca1f80d198a06004efd1e
+name: 'Sending SMS Notification'
   uses: sagarchoudhary96/exosms-actions@v1
   with:
-    # Exophone in your Exotel account to send the SMS from
-    fromNumber: 
-    # Phone number to send the SMS to
-    toNumber: 
-    # The message you want to send
-    message: 
-    # An Exotel Account SID. Can alternatively be stored in environment
-    EXOTEL_ACCOUNT_SID: 
-    # An Exotel API Key. Can alternatively be stored in environment
-    EXOTEL_API_KEY: 
-    # An Exotel API Token. Can alternatively be stored in environment
-    EXOTEL_API_TOKEN: 
-        node-version: ${{ matrix.node-version }}
-    - name: Install
-      run: npm install
-    - name: Test
-      run: npm test
+    fromNumber: 'from_number_here'
+    toNumber: 'to_number_here'
+    message: 'message_body_here'
+  env:
+    EXOTEL_ACCOUNT_SID: ${{ secrets.EXOTEL_ACCOUNT_SID }}
+    EXOTEL_API_KEY: ${{ secrets.EXOTEL_API_KEY }}
+    EXOTEL_API_TOKEN: ${{ secrets.EXOTEL_API_TOKEN }}
