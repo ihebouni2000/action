@@ -1,4 +1,3 @@
-name: Github Actions Example
 
 on:
   pull_request:
@@ -9,14 +8,23 @@ on:
 
 jobs:
   test:
-    name: Running Units Tests
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
+name: Exotel SMS
+  # You may pin to the exact commit or the version.
+  # uses: sagarchoudhary96/exosms-actions@0456b3973d4a76f50dfca1f80d198a06004efd1e
+  uses: sagarchoudhary96/exosms-actions@v1
+  with:
+    # Exophone in your Exotel account to send the SMS from
+    fromNumber: 
+    # Phone number to send the SMS to
+    toNumber: 
+    # The message you want to send
+    message: 
+    # An Exotel Account SID. Can alternatively be stored in environment
+    EXOTEL_ACCOUNT_SID: 
+    # An Exotel API Key. Can alternatively be stored in environment
+    EXOTEL_API_KEY: 
+    # An Exotel API Token. Can alternatively be stored in environment
+    EXOTEL_API_TOKEN: 
         node-version: ${{ matrix.node-version }}
     - name: Install
       run: npm install
